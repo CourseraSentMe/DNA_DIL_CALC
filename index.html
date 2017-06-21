@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DNA Dilution Calculator Slides</title>
+  <meta charset="utf-8">
+  <meta name="description" content="DNA Dilution Calculator Slides">
+  <meta name="author" content="Frank J. Ambrosio">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>DNA Dilution Calculator Slides</h1>
+    <h2>A calculator for DNA dilutions</h2>
+    <p>Frank J. Ambrosio<br/>Author</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Slide 1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>My web app is called the DNA Dilution Calculator</p>
+
+<pre><code class="r">c1 = 10
+v1 = 10
+c2 = 5
+v2 = (c1 * v1)/c2
+v2
+</code></pre>
+
+<pre><code>## [1] 20
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Slide 2</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Here is the ui.R code for the front end of my app!</p>
+
+<pre><code class="r">sidebarLayout(
+    sidebarPanel(
+      numericInput(&quot;numericA&quot;, &quot;What is the starting concentration in ng/uL?&quot;, 
+                   value = 0, min = 1, max = 1000, step = 1),
+      numericInput(&quot;numericB&quot;, &quot;What is the starting volume in uL?&quot;,
+                     value = 0, min = 1, max = 10000, step = 1),
+      numericInput(&quot;numericC&quot;, &quot;What is the desired concentration in ng/uL?&quot;,
+                    value = 0, min = 1, max = 1000, step = 1),
+      submitButton(&quot;Submit&quot;)
+    ),
+
+    mainPanel(
+       h3(&quot;Volume of diluent to be added to starting DNA solution 
+          in order to achieve desired dilution:&quot;),
+       textOutput(&quot;calcA&quot;),
+       h3(&quot;Total volume of completed dilution:&quot;),
+       textOutput(&quot;calcB&quot;)
+    )
+  )
+))
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Slide 3</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Here is the server.R code from my app!</p>
+
+<pre><code class="r">library(shiny)
+
+
+shinyServer(function(input, output) {
+   calcA &lt;- reactive({
+    ((input$numericA * input$numericB)/input$numericC)-input$numericB
+   })
+   calcB &lt;- reactive({
+     ((input$numericA * input$numericB)/input$numericC)
+   })
+   output$calcA &lt;- calcA
+   output$calcB &lt;- calcB
+  })
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Slide 4</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>If you ever need to calculate DNA Dilutions then YOU NEED THIS APP!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Slide 5</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>If you are working with DNA then you need to calculate DNA Dilutions so YOU NEED THIS APP!</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Slide 1'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Slide 2'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Slide 3'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Slide 4'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Slide 5'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='NA'>
+         6
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
