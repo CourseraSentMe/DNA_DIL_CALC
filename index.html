@@ -43,14 +43,20 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Slide 1</h2>
+    <h2>Slide 2</h2>
   </hgroup>
   <article data-timings="">
     <p>My web app is called the DNA Dilution Calculator</p>
 
+<p>Diluting DNA uses the common dilution formula &#39;C1 * V1 = C2 * V2&#39;
+This formula can be explained as:
+Concentration #1 Multiplied by Volume #1 Equals Concentration #2 Multiplied by Volume #2
+For example:</p>
+
 <pre><code class="r">c1 = 10
 v1 = 10
 c2 = 5
+##c1*v1 = c2*v2
 v2 = (c1 * v1)/c2
 v2
 </code></pre>
@@ -58,38 +64,7 @@ v2
 <pre><code>## [1] 20
 </code></pre>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Slide 2</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>Here is the ui.R code for the front end of my app!</p>
-
-<pre><code class="r">sidebarLayout(
-    sidebarPanel(
-      numericInput(&quot;numericA&quot;, &quot;What is the starting concentration in ng/uL?&quot;, 
-                   value = 0, min = 1, max = 1000, step = 1),
-      numericInput(&quot;numericB&quot;, &quot;What is the starting volume in uL?&quot;,
-                     value = 0, min = 1, max = 10000, step = 1),
-      numericInput(&quot;numericC&quot;, &quot;What is the desired concentration in ng/uL?&quot;,
-                    value = 0, min = 1, max = 1000, step = 1),
-      submitButton(&quot;Submit&quot;)
-    ),
-
-    mainPanel(
-       h3(&quot;Volume of diluent to be added to starting DNA solution 
-          in order to achieve desired dilution:&quot;),
-       textOutput(&quot;calcA&quot;),
-       h3(&quot;Total volume of completed dilution:&quot;),
-       textOutput(&quot;calcB&quot;)
-    )
-  )
-))
-</code></pre>
+<p>Here we see that in order to cut the concentration in half the volume must be doubled</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -100,22 +75,9 @@ v2
     <h2>Slide 3</h2>
   </hgroup>
   <article data-timings="">
-    <p>Here is the server.R code from my app!</p>
+    <p>Why does one need to dilute DNA?!?</p>
 
-<pre><code class="r">library(shiny)
-
-
-shinyServer(function(input, output) {
-   calcA &lt;- reactive({
-    ((input$numericA * input$numericB)/input$numericC)-input$numericB
-   })
-   calcB &lt;- reactive({
-     ((input$numericA * input$numericB)/input$numericC)
-   })
-   output$calcA &lt;- calcA
-   output$calcB &lt;- calcB
-  })
-</code></pre>
+<p>Next Generation Sequencing (NGS) is a technology that allows microbiologists to accurately read DNA. The process is fast, efficient and becoming cheaper all the time. One of the most common processes performed in the protocol for NGS is the dilution of DNA to an ideal concentration. This is because the chemistry and equipment used during DNA sequencing are highly sensitive and have a narrow window of ideal concentrations that will give an accurate reading of the DNA. This process is often repeated dozens of times during an experiment. Wouldn&#39;t it be nice if there was a web application that could compute the exact amount of diluent needed to be added to the stock DNA to achieve the desired concentration? Well now there is!</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -126,7 +88,13 @@ shinyServer(function(input, output) {
     <h2>Slide 4</h2>
   </hgroup>
   <article data-timings="">
-    <p>If you ever need to calculate DNA Dilutions then YOU NEED THIS APP!</p>
+    <p>Here is the link to my web app:</p>
+
+<p><a href="http://dna-dilution-calculator.shinyapps.io/dataproductsweek4">http://dna-dilution-calculator.shinyapps.io/dataproductsweek4</a></p>
+
+<p>This app is being hosted for free on the shinyapps.io server.</p>
+
+<p>Special thanks to shinyapps.io for not charging me anything for hosting my first app!</p>
 
   </article>
   <!-- Presenter Notes -->
@@ -137,15 +105,15 @@ shinyServer(function(input, output) {
     <h2>Slide 5</h2>
   </hgroup>
   <article data-timings="">
-    <p>If you are working with DNA then you need to calculate DNA Dilutions so YOU NEED THIS APP!</p>
+    <p>Why use this app over other apps?</p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<ul>
+<li><p>This application subtracts out the current volume and gives you only the volume of diluent to be added, saving you from having to do one step of the calculation.</p></li>
+<li><p>This application provides you with the total amount (mass) of DNA present in solution which is a valuable quantity to have for future calculations and publications.</p></li>
+<li><p>No animals were harmed in the making of this app.</p></li>
+<li><p>If you used my app it would make me super happy, so you should for sure use it. (Please)</p></li>
+</ul>
 
-<slide class="class" id="id" style="background:;">
-  <article data-timings="">
-    
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -156,38 +124,26 @@ shinyServer(function(input, output) {
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Slide 1'>
+        data-slide=1 title='Slide 2'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='Slide 3'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 3'>
+        data-slide=3 title='Slide 4'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Slide 4'>
+        data-slide=4 title='Slide 5'>
          4
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Slide 5'>
-         5
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=6 title='NA'>
-         6
       </a>
     </li>
   </ul>
